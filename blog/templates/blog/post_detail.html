@@ -5,9 +5,15 @@
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ object.name }}</a>
-              <small class="text-muted">{{ object.title }}</small>
+              {% if object.name == user %}
+              <div>
+                  <a class = "btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                  <a class = "btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+              </div>
+              {% endif %}
             </div>
-            <h2 class="article-title" >{{ object.content }}</h2>
+            <h2 class="article-title" >{{ object.title }}</h2>
+            <small class="text-muted">{{ object.content }}</small>
           </div>
       </article>
 {% endblock content %}
