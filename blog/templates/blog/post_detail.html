@@ -4,7 +4,7 @@
           <img class="rounded-circle article-img" src="{{ object.name.profile.image.url }}">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ object.name }}</a>
+              <a class="mr-2" href="{% url 'user-posts' object.name.username %}">{{ object.name }}</a>
               {% if object.name == user %}
               <div>
                   <a class = "btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
